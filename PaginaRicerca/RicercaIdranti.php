@@ -2,14 +2,14 @@
 session_start();
 $stampa = false;
 $messaggio=false;
-include("controlloSessione.php");
+include("../controlloSession.php");
 if($_POST){
-  if(controlloLogin()==true)
+  if(controlloSessione()==true)
   {
     if(isset($_POST["nome"]) || isset($_POST["provincia"])){
     $messaggio=true;
     //inclusione dati connessione
-    include("daticonnessione.php");
+    include("../daticonnessione.php");
     //creazione della connessione
     $conn = new mysqli($HOSTDB, $USERDB, $PASSDB, $NAMEDB);
     //controllo della connesione
@@ -119,9 +119,12 @@ if($_POST){
           <input type="submit" class="btn btn-primary" value="Ricerca dati">
 		  
         </form>
-        
-  
-		
+<form action = "../gestioneSegnalazioni.php" method="post" name="scheda" class="multi-range-field my-5 pb-5">
+
+  <input type="submit" class="btn btn-primary" value="Gestione Segnalazioni">
+
+</form>
+
 <?php
 if($messaggio==true){
   echo "<h3>Risultati ricerca</h3>";
@@ -136,6 +139,19 @@ if($messaggio==true){
   }
 }
 ?>
+
+<form action = "../gestioneIdranti/inserimento_idranti.html" method="post" name="scheda" class="multi-range-field my-5 pb-5">
+
+  <input type="submit" class="btn btn-primary" value="Inserisci Idrante">
+
+</form>
+<a href="logout.php">
+        <button style="font-size: 300%; font-family: 'goldplayBold';">Fai il logout</button>
+    </a>
+        
+  
+		
+
   
   
   

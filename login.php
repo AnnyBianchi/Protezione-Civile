@@ -9,7 +9,7 @@
     }
 
     if(controlloSessione()==true){
-        header("Location: home.php");
+        header("Location:PaginaRicerca/RicercaIdranti.php");
         die();
     }
 

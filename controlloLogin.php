@@ -29,10 +29,10 @@
                 $res = $stmt->get_result();
                 if($res->num_rows>0){
                     $obj = $res->fetch_object();
-                    if(password_verify($pw,$obj->password) == true){
+                    if(password_verify($pw,$obj->password)==true){
                         $_SESSION["idOperatore"] = $obj->ID_operatore;
                         $_SESSION["tipoUtente"] = $obj->tipologiaUtente;
-                        header("Location:home.php");
+                        header("Location:PaginaRicerca/RicercaIdranti.php");
                         exit();
                     }
                     else{
